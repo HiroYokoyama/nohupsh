@@ -35,13 +35,17 @@ This is a Bash script. You'll need:
 To run a command, simply pass it as a string argument to `nohupsh`:
 
 ```bash
-./nohupsh "your-command-here --with --arguments"
+./nohupsh your-command-here --with --arguments
+# Then, you can exit now.
+exit
 ```
 
 If you installed it to your `PATH`, you can run it from any directory:
 
 ```bash
-nohupsh "your-command-here --with --arguments"
+nohupsh your-command-here --with --arguments
+# Then, you can exit now.
+exit
 ```
 
 ## How It Works
