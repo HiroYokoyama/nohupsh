@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# nohuprun and generate shell script, which containts NEXTRUN
+# ver. 2025/10/07
+# Useage: nohupsh "command"
+# Better to add complete setting using [ $ complete -c nohupsh ]
+
+script_name=nohupsh-`date +%Y%m%d-%H%M%S`.sh
+
+echo "#!/bin/bash
+
+# This is nohupsh shell script.
+
+# Present Working Directory = `pwd`
+
+echo
+echo =============================================================
+echo \"!!!!!!!!!!       nohupsh Started       !!!!!!!!!!\"
+echo \"nohupsh Shell Script = $script_name \"
+echo \"Start time = \`date\`\"
+echo \"Hostname = \`hostname\`\"
+echo \"Present Working Directory = \`pwd\`\"
+echo \"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"
+echo
+
+# Initial Command is written below.
+
+$@
+
+# Next Command should be written below if nesessary.
+#####################################################
+
+
+
+
+
+#####################################################
+
+# Nothing should be written below.
+echo
+echo \"!!!!!!!!!!       nohupsh Finished      !!!!!!!!!!\"
+echo \"End time = \`date\`\"
+echo \"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"
+echo =============================================================
+" > $script_name
+
+chmod +x $script_name
+nohup ./$script_name &
+
+
